@@ -1,6 +1,7 @@
 package wc;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class WC {
@@ -24,9 +25,17 @@ public class WC {
 		return s;
 	}
 	
+	public long l() {
+		return 0;
+
+		
+     }
+	
+	
+	
 	public static void main(String[] args) {
-		new WC().filereader();
-		System.out.println(new WC().filereader());
+		new WC().l();
+		System.out.println(new WC().l());
 		
 	}
 }
