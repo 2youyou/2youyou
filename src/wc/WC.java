@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import java.util.Scanner;
+
+
 public class WC {
 	
-	String filepath="F:\\\\2youyou\\\\demo.txt";//文件路径
+	static String filepath;//文件路径
 	FileReader fr;
 	BufferedReader br;
 
@@ -14,7 +17,7 @@ public class WC {
 		int countline = 0;
 		
 		try {
-		fr = new FileReader("F:\\2youyou\\demo.txt");
+		fr = new FileReader(filepath);
 		br = new BufferedReader(fr);
 		
 			while (br.readLine() != null) {
@@ -35,7 +38,7 @@ public class WC {
 		String getfile;
 			
 		try {
-			fr = new FileReader("F:\\2youyou\\demo.txt");
+			fr = new FileReader(filepath);
 	        BufferedReader br=new BufferedReader(fr);
 	        while((getfile = br.readLine())!=null){
 	            s+=(getfile);
@@ -46,7 +49,7 @@ public class WC {
 			e.printStackTrace();
 		}
 		
-		countchar=s.length();
+		countchar=s.length();//字符串长度即为字符数
 		return countchar;
 	}
 	
@@ -56,7 +59,7 @@ public class WC {
 		String getfile;
 			
 		try {
-			fr = new FileReader("F:\\2youyou\\demo.txt");
+			fr = new FileReader(filepath);
 	        BufferedReader br=new BufferedReader(fr);
 	        while((getfile = br.readLine())!=null){
 	            s+=(getfile)+"\n";
@@ -67,7 +70,7 @@ public class WC {
 			e.printStackTrace();
 		}
 		
-		String[] str =s.split(" |\n");
+		String[] str =s.split(" |\n");//用空格以及换行符区分单词
 		countword =str.length;
 		return countword;
 		
@@ -79,6 +82,9 @@ public class WC {
 		
 	
 	public static void main(String[] args) {
+		System.out.println("请输入文件路径：");
+		Scanner sc = new Scanner(System.in);
+		filepath = sc.next();
 		new WC().l();
 		System.out.println("行数："+new WC().l());
 		new WC().c();
