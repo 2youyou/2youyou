@@ -1,10 +1,14 @@
 package wc;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
 import java.util.Scanner;
+
+import javax.imageio.stream.FileCacheImageInputStream;
+
+
 
 
 public class WC {
@@ -24,7 +28,7 @@ public class WC {
 				countline++;
 			}
 			br.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
@@ -66,8 +70,8 @@ public class WC {
 	        }
 	        br.close();
 		} catch (Exception e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
+			
 		}
 		
 		String[] str =s.split(" |\n");//用空格以及换行符区分单词
@@ -76,21 +80,31 @@ public class WC {
 		
 		
 	}
-	
-
-
-		
-	
-	public static void main(String[] args) {
-		System.out.println("请输入文件路径：");
+	 
+    public void exist() {
+    	System.out.println("请输入文件路径：");
 		Scanner sc = new Scanner(System.in);
 		filepath = sc.next();
+		File file = new File(filepath );
+		if(file.exists()) {
 		new WC().l();
 		System.out.println("行数："+new WC().l());
 		new WC().c();
 		System.out.println("字符数："+new WC().c());
 		new WC().w();
 		System.out.println("单词数："+new WC().w());
+		exist();	
+		}
+		else {
+			System.out.println("文件路径无效。");
+			exist();
+		}
+    }
+
 		
+	
+	public static void main(String[] args) {
+		WC wc = new WC();
+		wc.exist();
 	}
 }
