@@ -81,7 +81,7 @@ public class WC {
 		
 	}
 	 
-    public void exist() {
+    public void fileExist() {
     	System.out.println("请输入文件路径：");
 		Scanner sc = new Scanner(System.in);
 		filepath = sc.next();
@@ -93,11 +93,11 @@ public class WC {
 		System.out.println("字符数："+new WC().c());
 		new WC().w();
 		System.out.println("单词数："+new WC().w());
-		exist();	
+		fileExist();	
 		}
 		else {
 			System.out.println("文件路径无效。");
-			exist();
+			fileExist();
 		}
     }
 
@@ -105,6 +105,6 @@ public class WC {
 	
 	public static void main(String[] args) {
 		WC wc = new WC();
-		wc.exist();
+		wc.fileExist();
 	}
 }
