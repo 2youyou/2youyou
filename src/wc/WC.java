@@ -50,6 +50,30 @@ public class WC {
 		return countchar;
 	}
 	
+	public int w() {
+		int countword = 0;
+		String s ="";
+		String getfile;
+			
+		try {
+			fr = new FileReader("F:\\2youyou\\demo.txt");
+	        BufferedReader br=new BufferedReader(fr);
+	        while((getfile = br.readLine())!=null){
+	            s+=(getfile)+"\n";
+	        }
+	        br.close();
+		} catch (Exception e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		
+		String[] str =s.split(" |\n");
+		countword =str.length;
+		return countword;
+		
+		
+	}
+	
 
 
 		
@@ -59,6 +83,8 @@ public class WC {
 		System.out.println("行数："+new WC().l());
 		new WC().c();
 		System.out.println("字符数："+new WC().c());
+		new WC().w();
+		System.out.println("单词数："+new WC().w());
 		
 	}
 }
