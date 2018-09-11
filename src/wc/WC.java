@@ -1,41 +1,64 @@
 package wc;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class WC {
-
 	
-	public String filereader() {
-		FileReader fr;
-		String s = "";
-        String getfile = "";
+	String filepath="F:\\\\2youyou\\\\demo.txt";//文件路径
+	FileReader fr;
+	BufferedReader br;
+
+	public int l() {
+		int countline = 0;
+		
+		try {
+		fr = new FileReader("F:\\2youyou\\demo.txt");
+		br = new BufferedReader(fr);
+		
+			while (br.readLine() != null) {
+				countline++;
+			}
+			br.close();
+		} catch (IOException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		return countline;
+	}
+	
+	
+	public int c() {
+		int countchar = 0; 
+		String s ="";
+		String getfile;
+			
 		try {
 			fr = new FileReader("F:\\2youyou\\demo.txt");
 	        BufferedReader br=new BufferedReader(fr);
 	        while((getfile = br.readLine())!=null){
-	            s+=(getfile)+"\n";
+	            s+=(getfile);
 	        }
 	        br.close();
 		} catch (Exception e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		return s;
+		
+		countchar=s.length();
+		return countchar;
 	}
 	
-	public long l() {
-		return 0;
+
 
 		
-     }
-	
-	
 	
 	public static void main(String[] args) {
 		new WC().l();
-		System.out.println(new WC().l());
+		System.out.println("行数："+new WC().l());
+		new WC().c();
+		System.out.println("字符数："+new WC().c());
 		
 	}
 }
