@@ -1,2 +1,17 @@
-啊 的
-收到
+	public int l() {
+		int countline = 0;
+		
+		try {
+		fr = new FileReader(filepath);
+		br = new BufferedReader(fr);
+		
+			while (br.readLine() != null) {
+				countline++;
+			}
+			br.close();
+		} catch (Exception e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		return countline;
+	}

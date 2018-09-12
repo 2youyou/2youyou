@@ -17,6 +17,7 @@ public class WC {
 	FileReader fr;
 	BufferedReader br;
 
+	
 	public int l() {
 		int countline = 0;
 		
@@ -34,6 +35,7 @@ public class WC {
 		}
 		return countline;
 	}
+	
 	
 	
 	public int c() {
@@ -57,6 +59,8 @@ public class WC {
 		return countchar;
 	}
 	
+	
+	
 	public int w() {
 		int countword = 0;
 		String s ="";
@@ -78,9 +82,10 @@ public class WC {
 		countword =str.length;
 		return countword;
 		
-		
 	}
 	 
+	
+	
     public void fileExist() {
     	System.out.println("请输入文件路径：");
 		Scanner sc = new Scanner(System.in);
@@ -92,8 +97,7 @@ public class WC {
 		new WC().c();
 		System.out.println("字符数："+new WC().c());
 		new WC().w();
-		System.out.println("单词数："+new WC().w());
-		fileExist();	
+		System.out.println("单词数："+new WC().w());	
 		}
 		else {
 			System.out.println("文件路径无效。");
